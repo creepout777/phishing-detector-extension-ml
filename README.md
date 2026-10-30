@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="extension/icons/icon128.png" alt="Phishing Shield icon" width="84" />
-
 # Phishing Shield
 
 A Chrome extension that checks every page you open with a machine learning model,<br />
