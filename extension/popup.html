@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phishing Shield</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo-area">
+        <span class="logo-orb"></span>
+        <span class="logo-text">PHISHING <span class="logo-sub">SHIELD</span></span>
+      </div>
+      <span class="model-badge" id="model-badge">Scanning</span>
+    </header>
+
+    <section class="score-section">
+      <div class="radial-score-container">
+        <svg class="radial-ring" viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="ring-bg" cx="50" cy="50" r="42"></circle>
+          <circle class="ring-fg" id="ring" cx="50" cy="50" r="42"></circle>
+        </svg>
+        <div class="score-text-wrapper">
+          <span class="score-value" id="score">--</span>
+          <span class="score-label">Phishing risk</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="status-banner">
+      <span class="pulse-indicator" id="pulse"></span>
+      <span class="status-message" id="status">Analysing this page...</span>
+    </div>
+
+    <nav class="nav-tabs" role="tablist">
+      <button class="tab-btn active" data-tab="overview" role="tab">Overview</button>
+      <button class="tab-btn" data-tab="signals" role="tab">Signals</button>
+      <button class="tab-btn" data-tab="details" role="tab">Details</button>
+    </nav>
+
+    <div class="tab-content-area">
+      <div class="tab-pane active" id="tab-overview">
+        <div class="info-card">
+          <div class="card-row"><span class="row-label">Page</span><span class="row-value url-truncate" id="url">-</span></div>
+          <div class="card-row"><span class="row-label">Verdict</span><span class="row-value"><span class="badge" id="verdict">-</span></span></div>
+          <div class="card-row"><span class="row-label">Connection</span><span class="row-value" id="https">-</span></div>
+          <div class="card-row"><span class="row-label">Checked by</span><span class="row-value" id="model">-</span></div>
+        </div>
+        <div class="tip-card">
+          <span class="tip-title">Tip</span>
+          <p class="tip-desc" id="tip">Check the address bar before typing a password. Real login pages live on the company's own domain.</p>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="tab-signals">
+        <div class="cues-list" id="cues"></div>
+      </div>
+
+      <div class="tab-pane" id="tab-details">
+        <div class="stats-grid">
+          <div class="stat-box"><span class="stat-num" id="stat-length">-</span><span class="stat-name">URL length</span></div>
+          <div class="stat-box"><span class="stat-num" id="stat-subdomains">-</span><span class="stat-name">Subdomains</span></div>
+          <div class="stat-box"><span class="stat-num" id="stat-links">-</span><span class="stat-name">Links on page</span></div>
+          <div class="stat-box"><span class="stat-num" id="stat-login">-</span><span class="stat-name">Password form</span></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="app-footer">
+      <button class="action-btn" id="rescan">Scan again</button>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
